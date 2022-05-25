@@ -2,15 +2,18 @@
 @section("content")
 <section class="login">
     <h3 class="text-center mx-center mb-5">Đăng ký</h3>
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
+            <div class="d-block mx-auto text-center w-50">
+                @if(session()->has('message'))
+                    <div class="alert alert-success " role="alert">
+                    {{ session()->get('message')  }}
+                    </div>
+                @endif
+                @if(session()->has('failMessage'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session()->get('failMessage')  }}
+                    </div>
+                @endif
+            </div>
     <div class="form-login w-50 mx-auto">
         <form action="{{ route("site.handleRegister") }}" method="post">
             @csrf

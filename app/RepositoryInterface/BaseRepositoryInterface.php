@@ -17,6 +17,7 @@ interface BaseRepositoryInterface
      */
     public function find($id);
 
+    public function findCondition($attributes, $value);
     /**
      * Create
      * @param array $attributes

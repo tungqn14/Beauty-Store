@@ -3,17 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Frontend\BaseController;
-use App\RepositoryInterface\HomeRepositoryInterface;
 use Illuminate\Http\Request;
 
 
 class HomeController extends BaseController
 {
-    protected $repository;
-
-    public function __construct(HomeRepositoryInterface $repository)
+    public function __construct()
     {
-        $this->productRepo = $productRepo;
+
     }
 
     public function index()
@@ -23,7 +20,7 @@ class HomeController extends BaseController
 
     public function show($id)
     {
-        $product = $this->productRepo->find($id);
+
 
         return view('home.product', ['product' => $product]);
     }
@@ -34,7 +31,7 @@ class HomeController extends BaseController
 
         //... Validation here
 
-        $product = $this->productRepo->create($data);
+
 
         return view('home.products');
     }
@@ -45,14 +42,14 @@ class HomeController extends BaseController
 
         //... Validation here
 
-        $product = $this->productRepo->update($id, $data);
+
 
         return view('home.products');
     }
 
     public function destroy($id)
     {
-        $this->productRepo->delete($id);
+
         return view('home.products');
     }
 }

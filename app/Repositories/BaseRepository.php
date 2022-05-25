@@ -25,6 +25,11 @@ abstract class BaseRepository implements BaseRepositoryInterface
         );
     }
 
+    public function findCondition($colunm, $value)
+    {
+        return $this->model->where($colunm, $value);
+    }
+
     public function getAll($limit = 10)
     {
         return $this->model->paginate($limit);

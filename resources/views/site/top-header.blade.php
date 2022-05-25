@@ -23,19 +23,27 @@
                         </li>
                         <li class="account">
                             <a href="#">
-                                My Account
+                               Tài khoản
                                 <i class="fa fa-angle-down"></i>
                             </a>
-                            @auth
+                           @auth
                             <ul class="account_selection">
-                                <li><a href="#"><i class="fa-solid fa-user"></i>Profile</a></li>
-                                <li><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất</a></li>
-                            </ul>
-                            @endauth
+                                    <li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
+                                    <li>
+                                        <form id="logoutForm" method="post" action="{{ route("site.logout")}}">
+                                            @method("delete")
+                                            @csrf
+                                            <a href="javascript:{}" onclick="document.getElementById('logoutForm').submit();"><i class="fa fa-user"></i>Đăng xuất</a>
+                                        </form>
+                                    </li>
+                                </ul>
+                           @endauth
+                           @guest
                             <ul class="account_selection">
-                                <li><a href="{{ route("site.login") }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                <li><a href="{{ route("site.register") }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-                            </ul>
+                                    <li><a href="{{ route("site.login") }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                                    <li><a href="{{ route("site.register") }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                </ul>
+                           @endguest
                         </li>
                     </ul>
                 </div>
